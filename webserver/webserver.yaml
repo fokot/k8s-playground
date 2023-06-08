@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: webserver:2
+        image: webserver:3
         ports:
         - containerPort: 8080
 #        env:
