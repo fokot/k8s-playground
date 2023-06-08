@@ -4,7 +4,7 @@ WORKDIR /webserver
 
 COPY * .
 
-ENTRYPOINT ["/webserver/webserver.sh"]
-#ENTRYPOINT ["python3", "custom-server.py"]
+#ENTRYPOINT ["/webserver/webserver.sh"]
+ENTRYPOINT ["python3", "custom-server.py"]
 
 CMD [""]
