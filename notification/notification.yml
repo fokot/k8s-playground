@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: slack-notification
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: slack-notification
+          image: curlimages/curl
+          command:
+            - curl
+            - '-X'
+            - POST
+            - '-H'
+            - 'Content-type: application/json'
+            - '--data'
+            - '{"text":"Hello, World!"}'
+            - 'https://hooks.slack.com/services/***/***/***'
+      restartPolicy: Never
+  backoffLimit: 2
