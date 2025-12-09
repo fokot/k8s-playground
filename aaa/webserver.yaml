@@ -1,13 +1,28 @@
-# just for testing notifications from agrocd
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: webserver-service
-  namespace: default
+  name: service-in-test
+  labels:
+    app: service-in-test
 spec:
+  revisionHistoryLimit: 1
+  replicas: 1
   selector:
-    app: webserver
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8082
+    matchLabels:
+      app: service-in-test
+  template:
+    metadata:
+      labels:
+        app: service-in-test
+    spec:
+      imagePullSecrets:
+        - name: registry-cloudfarms-online
+      containers:
+        - name: service-in-test
+          image: registry.cloudfarms.online/github-commits-webhook:20251205172131-2125343dd484e86e6f91bc05e5e71b7985d29bd2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GITHUB_TOKEN
+              value: aaaaaa
