@@ -4,6 +4,7 @@ metadata:
   name: service-in-test
   labels:
     app: service-in-test
+  namespace: default
 spec:
   revisionHistoryLimit: 1
   replicas: 1
@@ -14,6 +15,7 @@ spec:
     metadata:
       labels:
         app: service-in-test
+      namespace: default
     spec:
       imagePullSecrets:
         - name: registry-cloudfarms-online
