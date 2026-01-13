@@ -21,8 +21,8 @@ spec:
         - name: registry-cloudfarms-online
       containers:
         - name: service-in-test
-          image: registry.cloudfarms.online/github-commits-webhook:20251209153219-a0b96892c4e5ee9b55e621c4f747973b2fe1b352
-#          image: registry.cloudfarms.online/github-commits-webhook:20251216102055-59adc799a46df629d9c45e734d86187019f96b2a
+#          image: registry.cloudfarms.online/github-commits-webhook:20251209153219-a0b96892c4e5ee9b55e621c4f747973b2fe1b352
+          image: registry.cloudfarms.online/github-commits-webhook:20251216102055-59adc799a46df629d9c45e734d86187019f96b2a
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
