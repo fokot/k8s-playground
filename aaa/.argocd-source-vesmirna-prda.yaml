@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - registry.cloudfarms.online/github-commits-webhook:20260122165618-c6106147aaefeaf69bac23b770ae24644ca7d40e
